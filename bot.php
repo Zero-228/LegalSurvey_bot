@@ -49,38 +49,22 @@ $bot->onCommand('start', function(Nutgram $bot) {
         $user_info = get_object_vars($bot->user());
         createUser($user_info);
         createLog(TIME_NOW, 'user', $bot->userId(), 'registering', '/start');
-        $inlineKeyboard = InlineKeyboardMarkup::make()
-        ->addRow(InlineKeyboardButton::make(msg('change_language', lang($bot->userId())), null, null, 'callback_change_lang'));
-        $bot->sendMessage(msg('welcome', lang($bot->userId())), reply_markup: $inlineKeyboard);
+        $bot->sendMessage(msg('pls_change_info', lang($bot->userId())));
+        $setInfo = new ChangeUserInfo($bot);
+        $setInfo->start($bot);
     } elseif (checkUser($bot->userId()) == 'one_user') {
         createLog(TIME_NOW, 'user', $bot->userId(), 'command', '/start');
-        superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId());
-        $inlineKeyboard = InlineKeyboardMarkup::make()
-        ->addRow(InlineKeyboardButton::make(msg('change_language', lang($bot->userId())), null, null, 'callback_change_lang'));
-        $bot->sendMessage(msg('welcome_back', lang($bot->userId())), reply_markup: $inlineKeyboard);
+        superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId(), false);
+        $mainMenu = new MainMenu($bot);
+        $mainMenu->start($bot);
     } else {
         $bot->sendMessage('WTF are you?');
     }
 });
 
-$bot->onCallbackQueryData('callback_change_lang', function (Nutgram $bot) {
-    createLog(TIME_NOW, 'user', $bot->userId(), 'callback', 'change language');
-    $changeLangInlineKeyboard = InlineKeyboardMarkup::make()->addRow(InlineKeyboardButton::make(msg('language', 'en'), null, null, 'callback_change_lang_to en'))->addRow(InlineKeyboardButton::make(msg('language', 'uk'), null, null, 'callback_change_lang_to uk'))->addRow(InlineKeyboardButton::make(msg('language', 'ru'), null, null, 'callback_change_lang_to ru'));
-    $bot->sendMessage(msg('choose_language', lang($bot->userId())), reply_markup: $changeLangInlineKeyboard);
-    superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId());
-    $bot->answerCallbackQuery();
-});
-
-$bot->onCallbackQueryData('callback_change_lang_to {param}', function (Nutgram $bot, $param) {
-    changeLanguage($bot->userId(), $param);
-    $bot->sendMessage(msg('language_changed', lang($bot->userId())));
-    superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId());
-    $bot->answerCallbackQuery();
-});
-
 $bot->onMessage(function (Nutgram $bot) {
     createLog(TIME_NOW, 'user', $bot->userId(), 'message', $bot->message()->text);
-    superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId());
+    superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId(), false);
     $msg = "You send: ".$bot->message()->text;
     $bot->sendMessage($msg);
 });

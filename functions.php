@@ -109,10 +109,22 @@ function changeLanguage($userId, $newLang) {
     mysqli_close($dbCon);
 }
 
-function superUpdater($db_table, $updateParam, $updateValue, $whereParam, $whereValue) {
+function getUserInfo($userId) {
+    $dbCon = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $query = mysqli_query($dbCon, "SELECT firstName, lastName, email, phone FROM user WHERE userId='$userId'");
+    $res = mysqli_fetch_assoc($query);
+    mysqli_close($dbCon);
+    return ['{name}'=>$res['firstName'],'{surname}'=>$res['lastName'],'{phone}'=>$res['phone'],'{email}'=>$res['email'],];
+}
+
+function superUpdater($db_table, $updateParam, $updateValue, $whereParam, $whereValue, $updater = true) {
     $timeNow = TIME_NOW;
     $dbCon = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    mysqli_query($dbCon, "UPDATE $db_table SET $updateParam='$updateValue', updated_at='$timeNow' WHERE $whereParam='$whereValue'");
+    if ($updater == true) {
+        mysqli_query($dbCon, "UPDATE $db_table SET $updateParam='$updateValue', updated_at='$timeNow' WHERE $whereParam='$whereValue'");
+    } else {
+        mysqli_query($dbCon, "UPDATE $db_table SET $updateParam='$updateValue' WHERE $whereParam='$whereValue'");
+    }
     mysqli_close($dbCon);
 }
 
