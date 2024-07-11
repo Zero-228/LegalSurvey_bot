@@ -62,6 +62,11 @@ $bot->onCommand('start', function(Nutgram $bot) {
     }
 });
 
+$bot->onCallbackQueryData('deadend', function (Nutgram $bot) {
+    sleep(1);
+    $bot->answerCallbackQuery();
+});
+
 $bot->onMessage(function (Nutgram $bot) {
     createLog(TIME_NOW, 'user', $bot->userId(), 'message', $bot->message()->text);
     superUpdater('user', 'lastVisit', TIME_NOW, 'userId', $bot->userId(), false);

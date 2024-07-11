@@ -41,6 +41,25 @@ $languages = array(
 		'email' => "email adress",
 		'changed_data' => " ✅ You changed your {data} to:\n",
 		'pls_change_info' => "❗️ Please set valid contact info below.",
+		'skip' => "Skip this step",
+
+
+		//Application 1
+		'ap1_quest1' => "How many family members do you have?\n\n(1/9)",
+		'ap1_quest2' => "How long do you work in this job?\n\n(2/9)",
+		'ap1_quest2_answ1' => "More then 3 month",
+		'ap1_quest2_answ2' => "Less then 3 month",
+		'ap1_quest3' => "In which country your company \nlocated in?\n\n(3/9)",
+		'ap1_quest4' => "How old is your company?\n\n(4/9)",
+		'ap1_quest4_answ1' => "Older then a year",
+		'ap1_quest4_answ2' => "Under a year old",
+		'ap1_quest5' => "How much do you ern per year\naccording to the contract?\n\n(5/9)",
+		'ap1_quest6' => "Do you have a Schengen visa?\n\n(6/9)",
+		'ap1_quest7' => "Are you currently located in Spain?\n\n(7/9)",
+		'ap1_quest8' => "Do you have a criminal record\nfor the past 5 years?\n\n(8/9)",
+		'ap1_answ_yes' => "Yes",
+		'ap1_answ_no' => "No",
+		'ap1_quest9' => "Here you can add any aditional\ninformation below.\n\n(9/9)",
 
 		/*
 		'' => "",
@@ -71,6 +90,25 @@ $languages = array(
 		'email' => "email adress",
 		'changed_data' => " ✅ You changed your {data} to:\n",
 		'pls_change_info' => "❗️ Please set valid contact info below.",
+		'skip' => "Skip this step",
+
+
+		//Application 1
+		'ap1_quest1' => "How many family members do you have?\n\n(1/9)",
+		'ap1_quest2' => "How long do you work in this job?\n\n(2/9)",
+		'ap1_quest2_answ1' => "More then 3 month",
+		'ap1_quest2_answ2' => "Less then 3 month",
+		'ap1_quest3' => "In which country your company \nlocated in?\n\n(3/9)",
+		'ap1_quest4' => "How old is your company?\n\n(4/9)",
+		'ap1_quest4_answ1' => "Older then a year",
+		'ap1_quest4_answ2' => "Under a year old",
+		'ap1_quest5' => "How much do you ern per year\naccording to the contract?\n\n(5/9)",
+		'ap1_quest6' => "Do you have a Schengen visa?\n\n(6/9)",
+		'ap1_quest7' => "Are you currently located in Spain?\n\n(7/9)",
+		'ap1_quest8' => "Do you have a criminal record\nfor the past 5 years?\n\n(8/9)",
+		'ap1_answ_yes' => "Yes",
+		'ap1_answ_no' => "No",
+		'ap1_quest9' => "Here you can add any aditional\ninformation below.\n\n(9/9)",
 	),
 	'uk' => array(
 		'WIP' => "Ця функція знаходиться в процессi \nрозробки.Дякую за ваше терпіння. 🧑‍💻",
@@ -97,6 +135,25 @@ $languages = array(
 		'email' => "email adress",
 		'changed_data' => " ✅ You changed your {data} to:\n",
 		'pls_change_info' => "❗️ Please set valid contact info below.",
+		'skip' => "Skip this step",
+
+
+		//Application 1
+		'ap1_quest1' => "How many family members do you have?\n\n(1/9)",
+		'ap1_quest2' => "How long do you work in this job?\n\n(2/9)",
+		'ap1_quest2_answ1' => "More then 3 month",
+		'ap1_quest2_answ2' => "Less then 3 month",
+		'ap1_quest3' => "In which country your company \nlocated in?\n\n(3/9)",
+		'ap1_quest4' => "How old is your company?\n\n(4/9)",
+		'ap1_quest4_answ1' => "Older then a year",
+		'ap1_quest4_answ2' => "Under a year old",
+		'ap1_quest5' => "How much do you ern per year\naccording to the contract?\n\n(5/9)",
+		'ap1_quest6' => "Do you have a Schengen visa?\n\n(6/9)",
+		'ap1_quest7' => "Are you currently located in Spain?\n\n(7/9)",
+		'ap1_quest8' => "Do you have a criminal record\nfor the past 5 years?\n\n(8/9)",
+		'ap1_answ_yes' => "Yes",
+		'ap1_answ_no' => "No",
+		'ap1_quest9' => "Here you can add any aditional\ninformation below.\n\n(9/9)",
 	),
 );
 

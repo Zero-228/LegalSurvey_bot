@@ -58,14 +58,14 @@ class MainMenu extends InlineMenu
 
     protected function makeApplication(Nutgram $bot)
     {
-        // $this->end();
-        // $makeApplication = new MakeApplication($bot);
-        // $makeApplication->start($bot);
-        $lang = lang($bot->userId());
-        $this->clearButtons()->menuText(msg('WIP', lang($bot->userId())))
-            ->addButtonRow(InlineKeyboardButton::make(msg('back', $lang), callback_data: '@start'))
-            ->orNext('none')
-            ->showMenu();
+        $this->end();
+        $createApplication = new CreateApplication($bot);
+        $createApplication->start($bot);
+        // $lang = lang($bot->userId());
+        // $this->clearButtons()->menuText(msg('WIP', lang($bot->userId())))
+        //     ->addButtonRow(InlineKeyboardButton::make(msg('back', $lang), callback_data: '@start'))
+        //     ->orNext('none')
+        //     ->showMenu();
     }
 
     protected function changeLanguage(Nutgram $bot)
